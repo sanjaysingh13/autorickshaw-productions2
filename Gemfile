@@ -21,10 +21,22 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+#gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'activerecord-tableless'
+gem 'foundation-rails'
+gem 'gibbon'
+gem 'google_drive'
+gem 'high_voltage'
+gem 'simple_form'
+gem "activerecord-postgresql-adapter"
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
+group :development do
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'rails_layout'
+end
 gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password

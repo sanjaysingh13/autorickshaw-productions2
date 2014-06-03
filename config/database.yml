@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: ARP_production
- # username: ARP
- # password: <%= ENV['ARP_DATABASE_PASSWORD'] %>
+  username: ARP
+  password: <%= ENV['ARP_DATABASE_PASSWORD'] %>
