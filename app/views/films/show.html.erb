@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title do %><%= @film.name%><% end %>
+<% content_for :description do %>Website of Autorickshaw Productions<% end %>
+<section class="row">
+		<div class="flex-video widescreen vimeo">
+		<%== @film.link%> 
+		</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</section>
+<section class="row">
+	<div class="small-12 medium-4 columns">
+		<div class="panel">
+			<%== @film.writeup%>
 
-<p>
-  <strong>Name:</strong>
-  <%= @film.name %>
-</p>
+		</div>
+	</div>
+<div class="small-12 medium-4 columns">
+		<div class="panel">
+			<%== @film.credits%>
+		</div>
+	</div>
+<div class="small-12 medium-4 columns">
+	<ul class="example-orbit" data-orbit>
+     <% (0..5).each do |i| %>
+     <li><%= image_tag("#{@film.id}_#{i}.png") %></li>
+     <% end %>
+   
+</ul>
+</div>
+    
+</section> 
 
-<p>
-  <strong>Link:</strong>
-  <%= @film.link %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @film.url %>
-</p>
-
-<p>
-  <strong>Writeup:</strong>
-  <%= @film.writeup %>
-</p>
-
-<p>
-  <strong>Credits:</strong>
-  <%= @film.credits %>
-</p>
-
-<%= link_to 'Edit', edit_film_path(@film) %> |
-<%= link_to 'Back', films_path %>
