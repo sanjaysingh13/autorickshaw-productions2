@@ -21,6 +21,9 @@ class FilmsController < ApplicationController
   # GET /films/1/edit
   def edit
   end
+  def gimli9830425757
+    render gimli9830425757
+  end
 
   # POST /films
   # POST /films.json

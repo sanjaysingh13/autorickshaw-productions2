@@ -1,0 +1,12 @@
+<% content_for :title do %>Films<% end %>
+<%= image_tag "camerea 5d 2.png" %>
+<%= image_tag "u2108-4.png" %>
+<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+<% @films.each do |film| %>
+<!--<li><%= link_to image_tag("#{film.id}_0.png"), film %></li>-->
+<li><div class=container><a class="th" href= /films/<%= "#{film.id}" %>>
+  <img src="/assets/<%= "#{film.id}_0.png" %>">
+</a></br><div align=center><p style="color:blue; font-weight:bold;"><%= film.name %></p></div></div></li>
+<% end %>
+</ul>
+
