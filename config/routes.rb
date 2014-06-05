@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  match "films/addfilm", :to => "films#addfilm", :via => :get
   resources :films
   post 'contact', to: 'contacts#process_form'
   resources :contacts, only: [:new, :create]
-  match "films/addfilm", :to => "films#addfilm", :via => :get
+
 
   root to: 'contacts#new'
   # The priority is based upon order of creation: first created -> highest priority.

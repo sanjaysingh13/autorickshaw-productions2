@@ -6,6 +6,9 @@ class FilmsController < ApplicationController
   def index
     @films = Film.all
   end
+  def addfilm
+    @films = Film.all
+  end
 
   # GET /films/1
   # GET /films/1.json
@@ -21,9 +24,7 @@ class FilmsController < ApplicationController
   # GET /films/1/edit
   def edit
   end
-  def gimli9830425757
-    render gimli9830425757
-  end
+  
 
   # POST /films
   # POST /films.json
