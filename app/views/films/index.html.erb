@@ -6,6 +6,7 @@
 </br>
 
 <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+	@films=@films.order(:created_at::desc)
 <% @films.each do |film| %>
 <!--<li><%= link_to image_tag("#{film.id}_0.png"), film %></li>-->
 <li><div class=container><a class="th" href= /films/<%= "#{film.id}" %>>

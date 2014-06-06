@@ -9,6 +9,9 @@ class FilmsController < ApplicationController
   def addfilm
     @films = Film.all
   end
+  def feature
+    @featurefilm = Film.where(feature:true).first
+  end
 
   # GET /films/1
   # GET /films/1.json
@@ -74,6 +77,6 @@ class FilmsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def film_params
-      params.require(:film).permit(:name, :link, :url, :writeup, :credits)
+      params.require(:film).permit(:name, :link, :url, :writeup, :credits, :feature)
     end
 end
