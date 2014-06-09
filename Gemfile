@@ -30,6 +30,14 @@ gem 'high_voltage'
 gem 'simple_form'
 gem "activerecord-postgresql-adapter"
 gem "slick_rails"
+# for aws cloud storage
+gem 'fog'
+# still resizing
+#gem 'rmagick'
+gem "mini_magick"
+# file upload solution
+gem 'carrierwave'
+gem "nested_form" 
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development

@@ -1,41 +1,52 @@
-<%= form_for(@film) do |f| %>
-  <% if @film.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@film.errors.count, "error") %> prohibited this film from being saved:</h2>
+  <%= simple_nested_form_for @film, :html => {:multipart => true} do |f| %>
+    <% if @film.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(@film.errors.count, "error") %> prohibited this film from being saved:</h2>
 
-      <ul>
-      <% @film.errors.full_messages.each do |message| %>
+        <ul>
+            <% @film.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+          <div class="field">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+          </div>
+          <div class="field">
+            <%= f.label :link %><br>
+            <%= f.text_area :link %>
+          </div>
+          <div class="field">
+            <%= f.label :url %><br>
+            <%= f.text_field :url %>
+          </div>
+          <div class="field">
+            <%= f.label :writeup %><br>
+            <%= f.text_area :writeup %>
+          </div>
+          <div class="field">
+            <%= f.label :credits %><br>
+            <%= f.text_area :credits %>
+          </div>
+          <div class="field">
+            <%= f.label :feature %><br>
+            <%= f.check_box :feature %>
+          </div>
+          <div>
+            <%= f.simple_fields_for :stills,
+            @film.stills_for_form do |s| %>
+             
+              <%= s.input :film_id, input_html: {value: @film.id}, as: :hidden %>
+              <%= s.file_field :image %>
+              <%= s.link_to_remove "Remove this still" %>
+              
+            <% end %>
+            <%#= file_field_tag "images[]", type: :file, multiple: true %>
+            <%= f.link_to_add "Add a still", :stills %>
+          </div>
+          <div class="actions">
+            <%= f.submit "submit", :class => "btn btn-default"%>
+          </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_area :link %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :writeup %><br>
-    <%= f.text_area :writeup %>
-  </div>
-  <div class="field">
-    <%= f.label :credits %><br>
-    <%= f.text_area :credits %>
-  </div>
-  <div class="field">
-    <%= f.label :feature %><br>
-    <%= f.check_box :feature %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

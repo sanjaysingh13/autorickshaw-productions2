@@ -1,12 +1,33 @@
-<% content_for :title do %>Films<% end %>
-<%= image_tag "camerea 5d 2.png" %>
-<%= image_tag "u2108-4.png" %>
-<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-<% @films.each do |film| %>
-<!--<li><%= link_to image_tag("#{film.id}_0.png"), film %></li>-->
-<li><div class=container><a class="th" href= /films/<%= "#{film.id}" %>>
-  <img src="/assets/<%= "#{film.id}_0.png" %>">
-</a></br><div align=center><p style="color:blue; font-weight:bold;"><%= film.name %></p></div></div></li>
-<% end %>
-</ul>
+<h1>Listing films</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Link</th>
+      <th>Url</th>
+      <th>Writeup</th>
+      <th>Credits</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @films.each do |film| %>
+      <tr>
+        <td><%= film.name %></td>
+        <td><%= film.link %></td>
+        <td><%= film.url %></td>
+        <td><%= film.writeup %></td>
+        <td><%= film.credits %></td>
+        <td><%= link_to 'Show', film %></td>
+        <td><%= link_to 'Edit', edit_film_path(film) %></td>
+        <td><%= link_to 'Destroy', film, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Film', new_film_path %>

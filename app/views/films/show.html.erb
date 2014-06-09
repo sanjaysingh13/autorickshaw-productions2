@@ -32,9 +32,9 @@
 </section> 
 <!--<div class="small-12 medium-4 columns">
 	<div class="fade">
-     <% (0..5).each do |i| %>
-     <div><%= image_tag("#{@film.id}_#{i}.png") %></div>
-     <% end %>
+     <% #(0..5).each do |i| %>
+     <div><%#= image_tag("#{@film.id}_#{i}.png") %></div>
+     <%# end %>
      </div>
 </div>
 <script type="text/javascript">
@@ -49,5 +49,16 @@
      });
 });
 	</script>-->
+	
+	
+	<div class="small-12 medium-4 columns">
+	<ul class="example-orbit" data-orbit>
+	<% @film.stills.each do |still| %>
+	
+	<%#= image_still(@still.image)%>
 
+ <li><%= image_tag still.image.url.to_s %></li>
+<% end %>
+</ul>
+</div>
 

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Film:</strong>
+  <%= @still.film_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @still.image %>
+</p>
+
+<%= link_to 'Edit', edit_still_path(@still) %> |
+<%= link_to 'Back', stills_path %>

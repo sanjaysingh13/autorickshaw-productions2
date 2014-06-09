@@ -1,0 +1,27 @@
+<h1>Listing stills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Film</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stills.each do |still| %>
+      <tr>
+        <td><%= still.film_id %></td>
+        <td><%= still.image %></td>
+        <td><%= link_to 'Show', still %></td>
+        <td><%= link_to 'Edit', edit_still_path(still) %></td>
+        <td><%= link_to 'Destroy', still, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Still', new_still_path %>
