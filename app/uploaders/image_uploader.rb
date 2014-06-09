@@ -42,10 +42,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     # returns a 150x150 image
    # process :resize_to_fill => [150, 150]
   #end
-  #version :medium_image do
+  version :medium_image do
     # returns a 50x50 image
-   # process :resize_to_fill => [50, 50]
- # end
+    process :resize_to_fit => [600, 337]
+  end
   #version :small_image do
     # returns a 35x35 image
    # process :resize_to_fill => [35, 35]

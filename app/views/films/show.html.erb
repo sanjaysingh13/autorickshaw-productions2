@@ -19,13 +19,17 @@
 			<%== @film.credits%>
 		</div>
 	</div>
-<div class="small-12 medium-4 columns">
+	<div class="small-12 medium-4 columns">
 	<ul class="example-orbit" data-orbit>
-     <% (0..5).each do |i| %>
-     <li><%= image_tag("#{@film.id}_#{i}.png") %></li>
-     <% end %>
-     </ul>
+	<% @film.stills.each do |still| %>
+	
+	<%#= image_still(@still.image)%>
+
+ <li><%= image_tag still.image.url(:medium_image) %></li>
+<% end %>
+</ul>
 </div>
+ 
      <!---->
    
 
@@ -49,16 +53,13 @@
      });
 });
 	</script>-->
-	
-	
 	<div class="small-12 medium-4 columns">
 	<ul class="example-orbit" data-orbit>
-	<% @film.stills.each do |still| %>
-	
-	<%#= image_still(@still.image)%>
-
- <li><%= image_tag still.image.url.to_s %></li>
-<% end %>
-</ul>
+     <% (0..5).each do |i| %>
+     <li><%= image_tag("#{@film.id}_#{i}.png") %></li>
+     <% end %>
+     </ul>
 </div>
+	
+	
 
