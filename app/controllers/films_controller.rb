@@ -4,7 +4,7 @@ class FilmsController < ApplicationController
   # GET /films
   # GET /films.json
   def index
-    @films = Film.all
+    @films = Film.all.sort_by {|h| h[:date]}.reverse!
   end
   def addfilm
     @films = Film.all
@@ -56,7 +56,7 @@ class FilmsController < ApplicationController
   def update
     #authorize @film
     respond_to do |format|
-     if @film.update(params[:film].permit(:name,:link,:url,:writeup,:credits,:feature, stills_attributes: [:id, :film_id, :image, :_destroy]))
+     if @film.update(params[:film].permit(:name,:link,:url,:writeup,:credits,:feature,:date, stills_attributes: [:id, :film_id, :image, :_destroy]))
       # to handle multiple images upload on update when user add more picture
       #if params[:images]
       #  params[:images].each { |image|
@@ -90,6 +90,6 @@ class FilmsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def film_params
-      params.require(:film).permit(:name, :link, :url, :writeup, :credits, :feature, stills_attributes: [:id, :film_id, :image, :_destroy])
+      params.require(:film).permit(:name, :link, :url, :writeup, :credits, :feature, :date, stills_attributes: [:id, :film_id, :image, :_destroy])
     end
 end

@@ -34,6 +34,10 @@
             <%= f.label :feature %><br>
             <%= f.check_box :feature %>
           </div>
+          <div class="field">
+            <%= f.label :date %><br>
+            <%= f.text_area :date %>
+          </div>
           <div>
             <%= f.simple_fields_for :stills,
             @film.stills_for_form do |s| %>

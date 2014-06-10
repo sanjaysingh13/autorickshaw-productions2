@@ -11,55 +11,23 @@
 </div>
 </div>
 <div class="small-12 medium-6 columns">
+  <ul>
+    <li>
 		<div class="flex-video widescreen vimeo">
 		<%== @featurefilm.link %>
 		</div>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-<div>
-	
-  <ul class="example-orbit" data-orbit>
-  <li>
-    <%= image_tag "5_0.png" %>
-    
-  </li>
-  <li class="active">
-    <%= image_tag "5_1.png" %>
-    
-  </li>
-  <li>
-    <%= image_tag "5_2.png" %>
-    
-  </li>
-  <li>
-    <%= image_tag "5_3.png" %>
-    
-  </li>
-  <li>
-    <%= image_tag "5_4.png" %>
-    
-  </li>
-  <li>
-    <%= image_tag "5_5.png" %>
-    
-  </li>
-  <li>
-    <%= image_tag "5_6.png" %>
-    
-  </li>
-  <li>
-    <%= image_tag "5_7.png" %>
-    
-  </li>
-  <li>
-    <%= image_tag "5_8.png" %>
-    <li>
-    <%= image_tag "5_9.png" %>
-    
-  </li>
-    
-   </ul>
+<p>&nbsp;</p></li>
 
-</div>
+<li>
+  <ul class="example-orbit" data-orbit>
+  <% @featurefilm.stills.each do |still| %>
+  
+  <%#= image_still(@still.image)%>
+
+ <li><%= image_tag still.image.url(:medium_image) %></li>
+<% end %>
+</ul>
+</div></li></ul>
 </section> 
 
