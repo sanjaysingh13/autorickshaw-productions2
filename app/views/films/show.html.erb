@@ -8,18 +8,18 @@
 <p>&nbsp;</p>
 </section>
 <section class="row">
-	<div class="small-12 medium-4 columns">
+	<div class="small-12 large-3 columns">
 		<div class="panel">
 			<%== @film.writeup%>
 
 		</div>
 	</div>
-<div class="small-12 medium-4 columns">
+<div class="small-12 large-3 columns">
 		<div class="panel">
 			<%== @film.credits%>
 		</div>
 	</div>
-	<div class="small-12 medium-4 columns">
+	<div class="small-12 large-6 columns">
 	<ul class="example-orbit" data-orbit>
 	<% @film.stills.each do |still| %>
 	
@@ -34,32 +34,12 @@
    
 
 </section> 
-<!--<div class="small-12 medium-4 columns">
-	<div class="fade">
-     <% #(0..5).each do |i| %>
-     <div><%#= image_tag("#{@film.id}_#{i}.png") %></div>
-     <%# end %>
-     </div>
-</div>
-<script type="text/javascript">
-	$(document).ready(function() {
-	$('.fade').slick({
-			dots: true,
-			infinite: true,
-			speed: 500,
-			fade: true,
-			slide: '> div',
-			cssEase: 'linear'
-     });
-});
-	</script>-->
-	<!--<div class="small-12 medium-4 columns">
-	<ul class="example-orbit" data-orbit>
-     <%# (0..5).each do |i| %>
-     <li><%#= image_tag("#{@film.id}_#{i}.png") %></li>
-     <%# end %>
-     </ul>
-</div>-->
+
+	
+
+
+
+	
 	
 	
 
