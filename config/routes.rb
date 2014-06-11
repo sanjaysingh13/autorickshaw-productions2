@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources :stills
+  resources :sessions
+  #map.connect 'login', :controlller => 'sessions', :action => 'create'
+  #map.connect 'logout', :controlller => 'sessions', :action => 'destroy'
+  match "/login", :to => "sessions#new", :via => :get
+  match "/logout", :to => "sessions#destroy", :via => :get
 
   match "films/addfilm", :to => "films#addfilm", :via => :get
   match "films/feature", :to => "films#feature", :via => :get
