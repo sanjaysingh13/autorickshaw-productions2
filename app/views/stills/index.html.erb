@@ -14,9 +14,11 @@
       <tr>
         <td><%= still.film_id %></td>
         <td><%= still.image %></td>
+        <% if admin? %>
         <td><%= link_to 'Show', still %></td>
         <td><%= link_to 'Edit', edit_still_path(still) %></td>
         <td><%= link_to 'Destroy', still, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

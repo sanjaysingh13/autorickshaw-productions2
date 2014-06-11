@@ -1,6 +1,6 @@
 class StillsController < ApplicationController
   before_action :set_still, only: [:show, :edit, :update, :destroy]
-
+before_filter :authorize, :except => [:index, :show]
   # GET /stills
   # GET /stills.json
   def index
