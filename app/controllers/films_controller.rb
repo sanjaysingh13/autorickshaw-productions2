@@ -1,22 +1,35 @@
 class FilmsController < ApplicationController
   before_action :set_film, only: [:show, :edit, :update, :destroy]
+
   before_filter :authorize, :except => [:index, :show, :feature]
   # GET /films
   # GET /films.json
+  @@i = 0
   def index
+    @@i = 0
     @films = Film.all.sort_by {|h| h[:date]}.reverse!
   end
   def addfilm
     @films = Film.all
   end
   def feature
+    
     @featurefilm = Film.where(feature:true).first
+
+
   end
 
   # GET /films/1
   # GET /films/1.json
   def show
     @film = Film.find(params[:id])
+    
+
+    @@i = @@i+1
+    Rails.logger.debug "@@i is  #{@@i}"
+    
+    redirect_to '/films/"#{(params[:id]}"' if @@i <= 2
+
   end
 
   # GET /films/new
@@ -86,6 +99,9 @@ class FilmsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_film
       @film = Film.find(params[:id])
+    end
+    def counter
+      @@i = 0
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

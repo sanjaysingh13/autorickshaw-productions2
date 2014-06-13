@@ -29,7 +29,7 @@ gem 'google_drive'
 gem 'high_voltage'
 gem 'simple_form'
 gem "activerecord-postgresql-adapter"
-gem "slick_rails"
+#gem "slick_rails"
 # for aws cloud storage
 gem 'fog'
 # still resizing
