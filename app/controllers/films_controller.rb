@@ -28,7 +28,7 @@ class FilmsController < ApplicationController
     @@i = @@i+1
     Rails.logger.debug "@@i is  #{@@i}"
     
-    redirect_to '/films/"#{(params[:id]}"' if @@i <= 2
+    redirect_to '/films/'+(params[:id]), status: 200 if @@i <= 1
 
   end
 
