@@ -39,11 +39,13 @@
             <%= f.text_field :date %>
           </div>
           <div><h1> Add still images</h1>
+            <p>The last still added, becomes the poster</p> 
             <%= f.simple_fields_for :stills,
             @film.stills_for_form do |s| %>
              
               <%= s.input :film_id, input_html: {value: @film.id}, as: :hidden %>
               <%= s.file_field :image %>
+          
               <%= s.link_to_remove "Remove this still" %>
               
             <% end %>

@@ -37,4 +37,4 @@
 
 <br>
 
-<%= link_to 'New Film', new_film_path %>
+<%= link_to 'New Film', new_film_path if admin?||guest? %>
