@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   match "films/feature", :to => "films#feature", :via => :get
   resources :films
   resources :stills
-  post 'contact', to: 'contacts#process_form'
+  #post 'contact', to: 'contacts#process_form'
   resources :contacts, only: [:new, :create]
 
 
