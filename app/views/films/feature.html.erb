@@ -1,33 +1,57 @@
 <% content_for :title do %>Autorickshaw Productions<% end %>
 <% content_for :description do %>Website of Autorickshaw Productions<% end %>
-<section class="row">
-	
-	<div class="small-12 large-4 columns">
-		<div class="panel">
-			<p><%== @featurefilm.writeup %></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<%== @featurefilm.credits %>
-</div>
-</div>
-<div class="small-12 large-8 columns">
-  <ul>
-    <li>
-		<div class="flex-video widescreen vimeo">
-		<%== @featurefilm.link %>
-		</div>
-<p>&nbsp;</p>
-<p>&nbsp;</p></li>
 
-<li>
-  <ul class="example-orbit" data-orbit>
-  <% @featurefilm.stills.each do |still| %>
+  <section class="col-md-4">
+	
+			<p><%== @featurefilm.writeup %></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <%== @featurefilm.credits %>
+  </section>
+  <section class="col-md-8">
+    <div class="responsive-video">
+            <%== @featurefilm.link %>
+            </div>
+            <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+   
+        <div class="carousel-inner">
+  	         <div class="item active">
+                <%= image_tag @featurefilm.stills.first.image.url(:medium_image) %>
+              <div class="carousel-caption text-center">
+              <h4></h4>
+              </div>
+             </div>
+            <% @featurefilm.stills.each do |still| %>
   
   <%#= image_still(@still.image)%>
 
- <li><%= image_tag still.image.url(:medium_image) %></li>
-<% end %>
-</ul>
-</div></li></ul>
-</section> 
+              <div class="item">
+                <%= image_tag still.image.url(:medium_image) %>
+
+                <div class="carousel-caption text-center">
+                  <h4></h4>
+                </div>
+              </div>
+            <% end %>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
+        class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><span
+        class="glyphicon glyphicon-chevron-right"></a>
+      </div>
+ 
+
+    
+  </section>
+
+
+ 
+            
+            <!--<div class="videowrapper well">
+                    <iframe src="http://player.vimeo.com/video/45417023" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> 
+                  </div>-->
+          
 

@@ -1,76 +1,85 @@
 // import the CSS framework
-@import "foundation";
+@import "bootstrap";
 
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+  }
 // override for the 'Home' navigation link
-.top-bar .name {
-  font-size: rem-calc(13);
-  line-height: 45px; }
-.top-bar .name a {
-  font-weight: normal;
-  color: white;
-  padding: 0 15px; }
+.navbar-brand {
+  font-size: inherit;
+  }
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
-// create mixins using Foundation classes
-@mixin twelve-columns {
-  @extend .small-12;
-  @extend .columns;
-  }
-@mixin six-columns-centered {
-  @extend .small-6;
-  @extend .columns;
-  @extend .text-center;
-  }
 // create your own classes
 // to make views framework-neutral
 .column {
-  @include six-columns-centered;
+  @extend .col-md-6;
+  @extend .text-center;
   }
 .form {
-  @include grid-column(6);
+  @extend .col-md-6;
   }
 .form-centered {
-  @include six-columns-centered;
+  @extend .col-md-6;
+  @extend .text-center;
   }
 .submit {
-  @extend .button;
-  @extend .radius;
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-lg;
   }
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
-  @include twelve-columns;
+  @extend .container;
   background-color: #eee;
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
   }
 section {
   @extend .row;
   margin-top: 20px;
   }
-  $row-width: em-calc(600);
-  $column-gutter: em-calc(30);
-  $total-columns: 12 !default;
-  header { @include grid-row; @include panel;
-    aside { @include grid-column(3); }
-    section { @include grid-column(9);
-      article {@include grid-row;
-       header { @include grid-column(2);}
-        div { @include grid-column(10);}
-        }
-       }
-      }  
-  .film {border:1px dotted;
-    border-radius:25px;align:center;box-shadow:10px 10px 5px #888888;background-color:#D3D3D3  ;
-   }
-   .header h2 {
-text-shadow: 3px 3px 3px #808080 ;
-}
-.about {background: url(10_1.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    font-size:16;
-    padding:25 px;
-}
-.foot {border:1px dotted;
-    border-radius:5px;align:center;box-shadow:10px 10px 5px #FFB2B2;background-color:#cf304b  ;
-   }
 
+
+  .carousel .item {-webkit-transition: opacity 3s; -moz-transition: opacity 3s; -ms-transition: opacity 3s; -o-transition: opacity 3s; transition: opacity 3s;}
+.carousel .active.left {left:0;opacity:0;z-index:2;}
+.carousel .next {left:0;opacity:1;z-index:1;}
+
+.responsive-video {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 60px; overflow: hidden;
+}
+
+
+.responsive-video iframe,
+.responsive-video object,
+.responsive-video embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+
+.videowrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; 
+    height: 0; 
+    overflow: hidden;
+}
+.videowrapper iframe, 
+.videowrapper object,
+.videowrapper embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

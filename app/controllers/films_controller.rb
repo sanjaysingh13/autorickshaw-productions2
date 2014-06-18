@@ -4,7 +4,7 @@ class FilmsController < ApplicationController
   before_filter :authorize, :except => [:index, :show, :feature]
   # GET /films
   # GET /films.json
-  @@i = 0
+  
   def index
     @@i = 0
     @films = Film.all.sort_by {|h| h[:date]}.reverse!
@@ -23,12 +23,6 @@ class FilmsController < ApplicationController
   # GET /films/1.json
   def show
     @film = Film.find(params[:id])
-    
-
-    @@i = @@i+1
-    Rails.logger.debug "@@i is  #{@@i}"
-    
-    redirect_to '/films/'+(params[:id]), status: 200 if @@i <= 1
 
   end
 

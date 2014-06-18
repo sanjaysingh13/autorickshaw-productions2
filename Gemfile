@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby "2.1.2"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
@@ -21,34 +21,19 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-#gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'activerecord-tableless'
-gem 'foundation-rails'
-gem 'gibbon'
-gem 'google_drive'
-gem 'high_voltage'
-gem 'simple_form'
-gem "activerecord-postgresql-adapter"
-#gem "slick_rails"
-# for aws cloud storage
-gem 'fog'
-# still resizing
-#gem 'rmagick'
-gem "mini_magick"
-# file upload solution
-gem 'carrierwave'
-gem "nested_form" 
-#gem 'rack-wwwhisper', '~> 1.0'
+gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 group :development do
-  gem 'better_errors'
-  gem 'quiet_assets'
-  gem 'rails_layout'
+gem 'better_errors'
+gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx] 
+gem 'quiet_assets'
+gem 'rails_layout'
 end
-gem 'rails_12factor', group: :production
-
+gem 'gibbon'
+gem 'google_drive'
+gem 'simple_form','3.1.0.rc1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -60,5 +45,16 @@ gem 'rails_12factor', group: :production
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-ruby "2.1.2"
-
+gem 'bootstrap-sass'
+gem 'high_voltage'
+gem 'activerecord-tableless'
+gem "activerecord-postgresql-adapter"
+gem 'fog'
+# still resizing
+#gem 'rmagick'
+gem "mini_magick"
+# file upload solution
+gem 'carrierwave'
+gem "nested_form" 
+gem 'rails_12factor', group: :production
+gem 'vimeo'
