@@ -15,6 +15,7 @@ class FilmsController < ApplicationController
   def feature
     
     @featurefilm = Film.where(feature:true).first
+    render 'films/feature', :layout => 'landing'
 
 
   end
