@@ -58,4 +58,4 @@ gem 'carrierwave'
 gem "nested_form" 
 gem 'rails_12factor', group: :production
 gem 'vimeo'
-gem 'font-awesome-sass'
+#gem 'font-awesome-sass'

@@ -77,8 +77,6 @@ GEM
       net-ssh (>= 2.1.3)
     fog-json (1.0.0)
       multi_json (~> 1.0)
-    font-awesome-sass (4.1.0)
-      sass (~> 3.2)
     formatador (0.2.5)
     gibbon (1.1.3)
       httparty
@@ -213,7 +211,6 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   fog
-  font-awesome-sass
   gibbon
   google_drive
   high_voltage
