@@ -6,9 +6,11 @@
 			<p><%== @featurefilm.writeup %></p>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
-      <%== @featurefilm.credits %><% end%>
-  </section>
-  <section class="col-md-8">
+      <%== @featurefilm.credits %>
+     
+      <% end%>
+  </section">
+  "  <section class="col-md-8">
     <%content_for :film_video do%><div class="responsive-video">
             <%== @featurefilm.link %>
             </div><%end%>

@@ -2,6 +2,7 @@ class FilmsController < ApplicationController
   before_action :set_film, only: [:show, :edit, :update, :destroy]
 
   before_filter :authorize, :except => [:index, :show, :feature]
+  before_action :vimeofilms
   # GET /films
   # GET /films.json
   

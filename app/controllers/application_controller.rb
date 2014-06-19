@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :admin?
   helper_method :guest?
+  helper_method :vimeofilms
   protected
   def admin?
     Rails.logger.debug "Session password is #{session[:password]}"
@@ -20,6 +21,9 @@ class ApplicationController < ActionController::Base
   		#render films.index
   		false
   	end
+  end
+  def vimeofilms
+    @vimeofilms = Vimeo::Simple::User.videos("autorickshawproductions")
   end
 
 end
