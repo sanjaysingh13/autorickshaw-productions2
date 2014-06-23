@@ -1,12 +1,13 @@
 <% content_for :title do %><%= @film.name%><% end %>
 <% content_for :description do %>Website of Autorickshaw Productions<% end %>
-<div id="<%= params[:action]%>"
-  <
+<div id="<%= params[:action]%>">
+  
           <div class="callout">
 
       <div class="vert-text">
       <h1><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["title"] %></h1>
     
+    <p>&nbsp;</p>
  
    <div class="col-md-8 col-md-offset-2 text-center">
                 <div class="responsive-video">
@@ -16,12 +17,45 @@
 </div>
 <div class="row">
     
-	<section class="col-md-4">
+	<section class="col-lg-4 col-sm-12">
 
 			<p ><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["description"] %></p>
     </section>
-    <section class="col-md-8">
-      <p><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["description"] %></p>
+    <section class="col-lg-8 col-sm-12">
+      <p>&nbsp;</p>
+  
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+<% i =1 %>
+     <%= while i <= @film.stills.count do %>
+<li data-target="#myCarousel" data-slide-to="<%=i%>"></li>
+<% i=i+1%>
+<% end%>
+</ol>
+        <div class="carousel-inner">
+             <div class="item active">
+                <img  src=<%= (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["thumbnail_large"] %>>
+              <div class="carousel-caption text-center">
+              <h4></h4>
+              </div>
+             </div>
+            <% @film.stills.each do |still| %>
+  
+  <%#= image_still(@still.image)%>
+
+              <div class="item">
+                <%= image_tag still.image.url(:medium_image) %>
+
+                <div class="carousel-caption text-center">
+                  <h4></h4>
+                </div>
+              </div>
+            <% end %>
+        </div>
+        
+      </div>
     </section>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
@@ -31,3 +65,5 @@
     </div>
 
     </div> 
+
+    
