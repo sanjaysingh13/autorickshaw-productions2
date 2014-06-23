@@ -1,22 +1,52 @@
-<% content_for :title do %>Films<% end %>
-</br>
-<%#= image_tag "camerea 5d 2.png" %>
-<%#= image_tag "u2108-4.png" %>
-</br>
-</br>
+<% content_for :title do %>Autorickshaw Productions: Filmography<% end %>
+<% content_for :description do %>Website of Autorickshaw Productions. Complete list of films<% end %>
 
-<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-	
-<% @films.each do |film| %>
-<% @still = film.stills.last %>
+
 <%#= link_to image_tag("#{film.id}_0.png"), film %>
-<li><div class=container><a class="th" href= /films/<%= "#{film.id}" %>>
-  <%= image_tag @still.image.url %>
-</a></br><div class=film><p style=" text-align: center;padding-top: 5px;font-weight:bold;"><%= film.name %></p></div></div></li>
 
-<% end %>
-</ul>
+    <!-- Portfolio --> 
+    
 
+    <div id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <h1>Our Work</h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-4 text-center"> <h1><em>Documentaries</em></h1></div>
+            
+            <% rowcount=0%>
+              <% while rowcount <= 1 do %>
+              <div class="row">
+                <div class="col-md-4 col-md-offset-2 text-center">
+                    <div class="portfolio-item">
+                        <a href= /films/<%= (@filmlist.find_by url: (@documentaries[2*rowcount])).id%>>
+                            <div class="blur"><img class="img-portfolio img-responsive" src=<%= (@vimeofilms.find {|f| f["id"] == (@documentaries[2*rowcount]).to_i})["thumbnail_large"] %>></div>
+                        </a>
+                        <h4><%= (@vimeofilms.find {|f| f["id"] == (@documentaries[2*rowcount]).to_i})["title"] %></h4>
+                    </div>
+                </div>
+                
+                  
+                <% if (rowcount < ((@documentaries.count+1)/2)-1) or (@documentaries.count % 2 ==0)%>
+                <div class="col-md-4 text-center">
+                    <div class="portfolio-item">
+                      
+                        <a href= /films/<%= (@filmlist.find_by url: (@documentaries[(2*rowcount)+1])).id%>>
+                          
+                         
+                            <img class="img-portfolio img-responsive" src=<%= (@vimeofilms.find {|f| f["id"] == (@documentaries[(2*rowcount)+1]).to_i})["thumbnail_large"] %>>
+                        </a>
+                        
+                        <h4><%=  (@vimeofilms.find {|f| f["id"] == (@documentaries[(2*rowcount)+1]).to_i})["title"] %></h4>
+                        
+                    </div>
+                </div>
+                <%end%>
+            </div>
+            <% rowcount=rowcount+1%>
+            <%end%>
 
- 
- 
+           

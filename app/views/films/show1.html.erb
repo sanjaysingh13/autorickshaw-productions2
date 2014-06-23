@@ -1,0 +1,118 @@
+<% content_for :title do %><%= @film.name%><% end %>
+<% content_for :description do %>Website of Autorickshaw Productions<% end %>
+<!--<section class="row">
+		<div class="flex-video widescreen vimeo">
+		<%== @film.link%> 
+		</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</section>
+<section class="row">
+	<div class="small-12 large-3 columns">
+		<div class="panel">
+			<%== @film.writeup%>
+
+		</div>
+	</div>
+<div class="small-12 large-3 columns">
+		<div class="panel">
+			<%== @film.credits%>
+		</div>
+	</div>
+	<div class="small-12 large-6 columns">
+	<ul class="example-orbit" data-orbit>
+	<% @film.stills.each do |still| %>
+	
+	<%#= image_still(@still.image)%>
+
+ <li><%= image_tag still.image.url(:medium_image) %></li>
+<% end %>
+</ul>
+</div>-->
+ 
+     <!--
+   
+
+</section> -->
+ <div class="container">
+ <div class="row">
+ <div class="span6">
+ <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
+ <iframe allowfullscreen="" src="http://player.vimeo.com/video/71876963" frameborder="0" width="500" height="281"></iframe>
+
+  </div> 
+
+
+   </div>
+   </div>
+   </div>
+   <div class="row">
+	<section class="col-md-8">
+    <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
+            <iframe allowfullscreen="" src="http://player.vimeo.com/video/"<%=@film.url%> frameborder="0" width="500" height="281"></iframe>
+
+            </div>
+            <p>&nbsp;</p>
+    <p>&nbsp;</p></section>
+</div>
+<div class="row">
+    <section class="col-md-4">
+	
+			<p><%= (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["description"] %></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      
+     
+  </section>
+</div>
+    
+
+     <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+   
+        <div class="carousel-inner">
+  	         <div class="item active">
+                <%= image_tag @featurefilm.stills.first.image.url(:medium_image) %>
+              <div class="carousel-caption text-center">
+              <h4></h4>
+              </div>
+             </div>
+            <% @featurefilm.stills.each do |still| %>
+  
+  <%#= image_still(@still.image)%>
+
+              <div class="item">
+                <%= image_tag still.image.url(:medium_image) %>
+
+                <div class="carousel-caption text-center">
+                  <h4></h4>
+                </div>
+              </div>
+            <% end %>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
+        class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><span
+        class="glyphicon glyphicon-chevron-right"></a>
+      </div>
+ 
+
+    
+  </section>
+
+
+ 
+            
+            <!--<div class="videowrapper well">
+                    <iframe src="http://player.vimeo.com/video/45417023" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> 
+                  </div>-->
+
+                -->
+
+
+
+
+
+	
+	
+	
+

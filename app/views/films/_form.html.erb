@@ -34,10 +34,7 @@
             <%= f.label "Featured film?" %><br>
             <%= f.check_box :feature %>
           </div>
-          <div class="field">
-            <%= f.label "Date in yyyy-mm-dd format" %><br>
-            <%= f.text_field :date %>
-          </div>
+          
           <div><h1> Add still images</h1>
             <p>The last still added, becomes the poster</p> 
             <%= f.simple_fields_for :stills,

@@ -11,28 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610073608) do
+ActiveRecord::Schema.define(version: 0) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "films", force: true do |t|
-    t.string   "name"
-    t.text     "link"
-    t.string   "url"
-    t.text     "writeup"
-    t.text     "credits"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "feature"
-    t.date     "date"
-  end
-
-  create_table "stills", force: true do |t|
-    t.integer  "film_id"
-    t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

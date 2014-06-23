@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Autorickshaw Productions" %>">
+    <meta name="author" content="Manisha">
 
-    <title>Autorickshaw Productions</title>
+    <title><%= content_for?(:title) ? yield(:title) : "Autorickshaw Productions" %></title>
 
     <!-- Bootstrap core CSS -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -35,6 +35,8 @@
             </li>
             <li><a href="#portfolio">Portfolio</a>
             </li>
+            <li><a href="/films">Filmography</a>
+            </li>
             <li><a href="#contact">Contact</a>
             </li>
         </ul>
@@ -42,161 +44,20 @@
     <!-- /Side Menu -->
 
     <!-- Full Page Image Header Area -->
-    <div id="top" class="header">
-        <div class="vert-text">
-            <h1>Autorickshaw Productions</h1>
-            <h3>
-                <em>The</em> Home of Good Films,
-                <em>...aesthetics</em> beyond form</h3>
-            <a href="#about" class="btn btn-default btn-lg">Find Out More</a>
-        </div>
-    </div>
-    <!-- /Full Page Image Header Area -->
-
-    <!-- Intro -->
-    <div id="about" class="intro">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
-                    <h2>We don't just make films. We share our dreams</h2>
-                    <p class="lead">We are the perfect choice for your next short film, documentary, pre-release, behind-the-scenes or promotional video.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Intro -->
-
-    <!-- Services -->
-    <div id="services" class="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <h2>Our Services</h2>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-md-offset-2 text-center">
-                    <div class="service-item">
-                        <i class="service-icon fa fa-bullseye"></i>
-                        <h4>Precise fulfilment of client's requirement</h4>
-                        <p>At Autorickshaw Productions, we believe that it's important for films to be designed. We think that an aesthetic is not something which only feature or short films, documentaries and music videos have a claim over, but that even corporate videos, trailers, event covers can be beautifully designed. We work to deliver films which are high on production value, and can be appreciated by a discerning audience, as well as a teenager just browsing through Youtube. We love what we do, and we work very very hard on your vision, and your ideas to deliver films to you which you'll fall in love with and keep wanting to play back.</p>
-                    </div>
-                </div>
-                <div class="col-md-2 text-center">
-                    <div class="service-item">
-                        <i class="service-icon fa fa-camera"></i>
-                        <h4>Short films</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                    </div>
-                </div>
-                <div class="col-md-2 text-center">
-                    <div class="service-item">
-                        <i class="service-icon fa fa-microphone"></i>
-                        <h4>Pre-release videos</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                    </div>
-                </div>
-                <div class="col-md-2 text-center">
-                    <div class="service-item">
-                        <i class="service-icon fa fa-film"></i>
-                        <h4>Functions</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Services -->
-
-    <!-- Callout -->
-    <div class="callout">
-        <div class="vert-text">
-            
-            <div class="col-md-4 col-md-offset-2 text-center"><h1>Featured Film</h1>
-            <%= yield :write_up %>
-            </div>
-            <div class="col-md-8 col-md-offset-2 text-center">
-                <%= yield :film_video %>
-            </div>
-        </div>
-    </div>
-    <!-- /Callout -->
-
-    <!-- Portfolio -->
-    <div id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <h2>Our Work</h2>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-md-offset-2 text-center">
-                    <div class="portfolio-item">
-                        <a href=<%= @vimeofilms.first["url"]%>>
-                            <img class="img-portfolio img-responsive" src=<%= @vimeofilms.first["thumbnail_large"]%>>
-                        </a>
-                        <h4><%= @vimeofilms.first["title"]%></h4>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="portfolio-item">
-                        <a href=<%= @vimeofilms.second["url"]%>>
-                            <img class="img-portfolio img-responsive" src=<%= @vimeofilms.second["thumbnail_large"]%>>
-                        </a>
-                        <h4><%= @vimeofilms.second["title"]%></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-md-offset-2 text-center">
-                    <div class="portfolio-item">
-                        <a href=<%= @vimeofilms.third["url"]%>>
-                            <img class="img-portfolio img-responsive" src=<%= @vimeofilms.third["thumbnail_large"]%>>
-                        </a>
-                        <h4><%= @vimeofilms.third["title"]%></h4>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="portfolio-item">
-                        <a href=<%= @vimeofilms.fourth["url"]%>>
-                            <img class="img-portfolio img-responsive" src=<%=@vimeofilms.fourth["thumbnail_large"]%>>
-                        </a>
-                        <h4><%= @vimeofilms.fourth["title"]%></h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Portfolio -->
-
-    <!-- Call to Action -->
-    <div class="call-to-action">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
-                    <h3>Complete portfolio</h3>
-                    
-                    <a href="/films" class="btn btn-lg btn-primary">Look at Us!</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- /Call to Action -->
 
     <!-- Map -->
-    <div id="contact" class="map">
+    <!--<div id="contact" class="map">
         <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
         <br />
         <small>
             <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
         </small>
         </iframe>
-    </div>
+    </div>-->
     <!-- /Map -->
-
+    <%= yield %>
     <!-- Footer -->
     <footer>
         <div class="container">

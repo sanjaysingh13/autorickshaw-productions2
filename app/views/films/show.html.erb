@@ -1,45 +1,33 @@
 <% content_for :title do %><%= @film.name%><% end %>
 <% content_for :description do %>Website of Autorickshaw Productions<% end %>
-<section class="row">
-		<div class="flex-video widescreen vimeo">
-		<%== @film.link%> 
-		</div>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-</section>
-<section class="row">
-	<div class="small-12 large-3 columns">
-		<div class="panel">
-			<%== @film.writeup%>
+<div id="<%= params[:action]%>"
+  <
+          <div class="callout">
 
-		</div>
-	</div>
-<div class="small-12 large-3 columns">
-		<div class="panel">
-			<%== @film.credits%>
-		</div>
-	</div>
-	<div class="small-12 large-6 columns">
-	<ul class="example-orbit" data-orbit>
-	<% @film.stills.each do |still| %>
-	
-	<%#= image_still(@still.image)%>
-
- <li><%= image_tag still.image.url(:medium_image) %></li>
-<% end %>
-</ul>
-</div>
+      <div class="vert-text">
+      <h1><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["title"] %></h1>
+    
  
-     <!---->
-   
+   <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="responsive-video">
+            <iframe allowfullscreen="" src="http://player.vimeo.com/video/<%=@film.url%>" frameborder="0" width="1000" height="562"></iframe>
+            </div>
+            </section>
+</div>
+<div class="row">
+    
+	<section class="col-md-4">
 
-</section> 
+			<p ><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["description"] %></p>
+    </section>
+    <section class="col-md-8">
+      <p><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["description"] %></p>
+    </section>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      
+     
+  </div></div>
+    </div>
 
-
-
-
-
-	
-	
-	
-
+    </div> 

@@ -10,7 +10,7 @@
       <th>Writeup</th>
       <th>Credits</th>
       <th>Feature</th>
-      <th>Date</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,7 +24,7 @@
         <td><%= film.writeup %></td>
         <td><%= film.credits %></td>
         <td><%= film.feature %></td>
-        <td><%= film.date %></td>
+        
         <% if admin? %>
         <td><%= link_to 'Show', film %></td>
         <td><%= link_to 'Edit', edit_film_path(film) %></td>

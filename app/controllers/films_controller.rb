@@ -3,12 +3,21 @@ class FilmsController < ApplicationController
 
   before_filter :authorize, :except => [:index, :show, :feature]
   before_action :vimeofilms
+  before_action :filmlist
+  before_action :documentaries
+before_action :shortfilm
+before_action :musicvideos
+before_action :behindthescenes
+before_action :adfilms
+before_action :weddings
+
+
   # GET /films
   # GET /films.json
   
   def index
-    @@i = 0
-    @films = Film.all.sort_by {|h| h[:date]}.reverse!
+    render 'films/index', :layout => 'landing'
+    #@films = Film.all
   end
   def addfilm
     @films = Film.all
@@ -25,6 +34,7 @@ class FilmsController < ApplicationController
   # GET /films/1.json
   def show
     @film = Film.find(params[:id])
+render 'films/show', :layout => 'landing'
 
   end
 
@@ -65,7 +75,7 @@ class FilmsController < ApplicationController
   def update
     #authorize @film
     respond_to do |format|
-     if @film.update(params[:film].permit(:name,:link,:url,:writeup,:credits,:feature,:date, stills_attributes: [:id, :film_id, :image, :_destroy]))
+     if @film.update(params[:film].permit(:name,:link,:url,:writeup,:credits,:feature, stills_attributes: [:id, :film_id, :image, :_destroy]))
       # to handle multiple images upload on update when user add more picture
       #if params[:images]
       #  params[:images].each { |image|
@@ -102,6 +112,6 @@ class FilmsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def film_params
-      params.require(:film).permit(:name, :link, :url, :writeup, :credits, :feature, :date, stills_attributes: [:id, :film_id, :image, :_destroy])
+      params.require(:film).permit(:name, :link, :url, :writeup, :credits, :feature, stills_attributes: [:id, :film_id, :image, :_destroy])
     end
 end

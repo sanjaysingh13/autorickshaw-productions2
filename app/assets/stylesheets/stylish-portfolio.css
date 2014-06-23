@@ -18,6 +18,13 @@ body {
   font-size: 4.5em;
   font-weight: 700;
 }
+#show {.vert-text p {
+  padding: 20px;
+  margin: 5px;
+  font-size: 1.2em;
+  font-weight: 300;
+}}
+
 
 /* Side Menu */
 
@@ -176,6 +183,9 @@ i.service-icon {
 .img-portfolio {
   margin: 0 auto;
 }
+.img-portfolio:hover {
+  filter: blur(20px);
+}
 
 
 /* Call to Action */
@@ -220,6 +230,7 @@ i.scroll:hover {
 }
 /* Responsive */
 
+
 @media (max-width: 768px) {
 	
   .header {
@@ -233,5 +244,6 @@ i.scroll:hover {
   .map {
 	height: 75%;
   }
+
 
 }
