@@ -1,4 +1,4 @@
-<% content_for :title do %><%= @film.name%><% end %>
+<% content_for :title do %><%= (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["title"] %><% end %>
 <% content_for :description do %>Website of Autorickshaw Productions<% end %>
 <div id="<%= params[:action]%>">
   
@@ -65,5 +65,7 @@
     </div>
 
     </div> 
+
+
 
     
