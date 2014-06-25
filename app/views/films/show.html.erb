@@ -2,7 +2,7 @@
 <% content_for :description do %>Website of Autorickshaw Productions<% end %>
 <div id="<%= params[:action]%>">
   
-  <!--        <div class="callout">
+          <div class="callout">
 
       <div class="vert-text">
       <h1><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["title"] %></h1>
@@ -64,15 +64,68 @@
   </div></div>
     </div>
 
-    </div> -->
+    </div> 
 <!-- Vimeo Advanced API-->
+
 <% cstructured = @film.vimeocomments %>
 
 <% c = @film.commentlist %>
-        <% cstructured.each do  |x| %>
+      
+         
+          <div id="masthead">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Comments
+          <p class="lead">(on Vimeo)</p>
+        </h1>
+      </div>
+      
+    </div> 
+  </div><!-- /cont -->
+  
+ 
+</div>
+
+<div id="comments">
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body" >
+        
+          
+          <!--/stories-->
+          <% cstructured.each do  |x| %>
+          <%i=0%>
           <% x.each do  |y| %>
-          <p><%= (c.find {|f| f["id"] == y})["text"]%></p>
+
+      <div class="row indent<%=i%>" >
+      <div class="indent<%=i%>">  
+            <br>
+            <div class="col-md-2 col-sm-3 text-center">
+              <a class="story-img" href=<%=(c.find {|f| f["id"] == y})["author"]["profileurl"]%>><img src=<%=(c.find {|f| f["id"] == y})["author"]["portraits"]["portrait"].third["_content"] %> class="img-circle"></a>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h1><%=(c.find {|f| f["id"] == y})["author"]["display_name"]%></h1>
+              <div class="row">
+                <div class="col-xs-9">
+                  <p><%= (c.find {|f| f["id"] == y})["text"]%></p>
+                  
+                  </div>
+                <div class="col-xs-3"></div>
+              </div>
+              <br><br>
+            </div>
+          </div>
+        </div>
+        <% i=i+1%>
           <% end %><% end %>
+          <hr>
+</div></div></div></div></div></div>
+
 
 
 

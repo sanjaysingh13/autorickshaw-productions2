@@ -163,13 +163,15 @@ i.service-icon {
   display: table;
   height: 500px;
   width: 100%;
-  background: url(7_0.png) no-repeat center center fixed ; 
+   
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-
+.callout {
+background: url(7_0.png) no-repeat center center fixed ;
+}
 .callout p {padding-left: 30px; padding-top: 15px}
 .callout #myCarousel {padding-bottom: 30px}
 
@@ -179,6 +181,8 @@ i.service-icon {
   padding: 50px 0;}
     .portfolio .sub h1 {font-size: 1.9em;}
     .portfolio .sub2 h1 {font-size: 1.7em;}
+     .sub3 h1 {font-size: 1.8em; text-align:left;}
+
 
 .portfolio-item {
   margin-bottom: 25px;
@@ -232,7 +236,7 @@ i.scroll:hover {
 /* Responsive */
 
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 768px) {
 	
   .header {
 	background: url(IMG_8432.JPG) no-repeat center center scroll; 
