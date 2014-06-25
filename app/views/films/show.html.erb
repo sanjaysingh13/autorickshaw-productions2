@@ -66,82 +66,14 @@
 
     </div> -->
 <!-- Vimeo Advanced API-->
+<% cstructured = @film.vimeocomments %>
 
-
-<% video = Vimeo::Advanced::Video.new("82caad5d814d421a85c2b8844aab8c756348a74a", "6f7c421aa79efc12abc1a459058913f06d001a62", :token => "c60e31a5d5d878e647984175c871994b", :secret => "0eec1145bd44d62d1308ca38945a9b4eb5bc2934")%>
-<% comments = video.get_comments_list("73288415") %>
-<% q = comments["comments"]["comment"] %>
-<% p = q.clone %>
-
-<ul>
-  <% q.reverse_each do |c| %>
-
-<li><%= c["id"]   %></li>
-<li><%= c["reply_to_comment_id"]   %></li>
-<li><%= c["text"]   %></li>
-<li><%= c["author"]["display_name"] %></li>
-<li><%= c["author"]["profileurl"] %></li>
-<li><%= c["author"]["portraits"]["portrait"].first["_content"] %></li>
-
-<p>&nbsp;</p>
-      <p>&nbsp;</p>
-<% end %>
-
-
-</ul>
-
-
-<% b=Array.new%>
-<% m=Array.new%>
-
-      
-  <% q.reverse_each do |c| %>
-
-      <% if c["id"]==c["reply_to_comment_id"] %>
-
-      <% a = Array.new%>
-      <% a<< c["id"] %>
-      <% b<< a%>
-      <% q.delete(c) %>
-      <% end %>
-
-  <% end %>
-  
-
-  
-  
-  
-
-  <% q.each do |c| %>
-
-       <% b.each do |z|%>
-       <% if z.first == c["reply_to_comment_id"]%>
-
-      <% z<< c["id"]%>  
-      <% end %>
-      <% end %>
-  <% end %>
-  
-   
-
-    <% b.each do |y|%>
-        <% y= y.sort %>
-        <% m<< y%>
-        <% end %>
-
-<%= m %> 
-
-
-<%= p %>  
-
-   
+<% c = @film.commentlist %>
+        <% cstructured.each do  |x| %>
+          <% x.each do  |y| %>
+          <p><%= (c.find {|f| f["id"] == y})["text"]%></p>
+          <% end %><% end %>
 
 
 
 
-
-<!--vimeo.videos.comments.getList-->
-
-
-
-    
