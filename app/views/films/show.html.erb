@@ -92,16 +92,16 @@
   <div class="row">
     
     <div class="col-md-12"> 
-      
-      <div class="panel">
+      <% cstructured.each do  |x| %>
+     
         <div class="panel-body" >
         
           
-          <!--/stories-->
-          <% cstructured.each do  |x| %>
+          
+          
           <%i=0%>
           <% x.each do  |y| %>
-
+<!--starting chnge-->
       <div class="row indent<%=i%>" >
       <div class="indent<%=i%>">  
             <br>
@@ -117,14 +117,19 @@
                   </div>
                 <div class="col-xs-3"></div>
               </div>
-              <br><br>
+              
             </div>
           </div>
         </div>
         <% i=i+1%>
-          <% end %><% end %>
-          <hr>
-</div></div></div></div></div></div>
+          <% end %>
+          
+</div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
 
 
 

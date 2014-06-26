@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
   def authorize
   	unless admin?||guest?
-  		flash[:error] = "unauthorized access"
+  		flash.now[:error] = "unauthorized access"
   		#render films.index
   		false
   	end

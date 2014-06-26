@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Autorickshaw Productions" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Autorickshaw Productions" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class= "header">
+      <%= render 'layouts/navigation' %>
+<section>
+  <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+  	<div class="column">
+	<%= image_tag "autologo.png" %>
+	</div>
+	<div class="column">
+	<h2>The home of good films</h2>
+	<p>...aesthetics beyond form.</p>
+    <p>We don't just make films. We share our dreams</p>
+	</div>
+</section>
+
+    </div>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
+    
+
+  </body>
+</html>

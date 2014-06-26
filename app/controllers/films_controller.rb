@@ -16,7 +16,7 @@ before_action :weddings
   # GET /films.json
   
   def index
-    render 'films/index', :layout => 'landing'
+    
     #@films = Film.all
   end
   def addfilm
@@ -25,7 +25,7 @@ before_action :weddings
   def feature
     
     @featurefilm = Film.where(feature:true).first
-    render 'films/feature', :layout => 'landing'
+    
 
 
   end
@@ -34,7 +34,7 @@ before_action :weddings
   # GET /films/1.json
   def show
     @film = Film.find(params[:id])
-render 'films/show', :layout => 'landing'
+
 
   end
 

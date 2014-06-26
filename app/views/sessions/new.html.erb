@@ -1,17 +1,20 @@
 <% content_for :title do %>Login<% end %>
-<section class="row">
-	
-  <div class="small-12 medium-6 columns">
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-   <div class="content">
-    <h3>Login</h3>
-      <p>&nbsp;</p>
-         <p> <%= form_tag sessions_path do %>
-         Password: <%= text_field_tag :password  %><%= submit_tag("Submit") %>
+<div class="call-to-action">	
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <h3>Login</h3>
+<p> <%= form_tag sessions_path do %>
+         Password: <%= text_field_tag :password  %><%= submit_tag("Submit") %><%= submit_tag ( 'Submit', :class => "btn btn-lg btn-primary") %>      
         <% end %></p>
-   </div>
+        </div>
+        </div>
+    </div>
+   
+    
+      
+         
+   
   </div>
   
-</section> 
+

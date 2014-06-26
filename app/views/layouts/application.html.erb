@@ -1,40 +1,121 @@
 <!DOCTYPE html>
-<html>
-  <head>
-   
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Autorickshaw Productions" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Autorickshaw Productions" %>">
+    <meta name="author" content="Manisha">
+
+    <title><%= content_for?(:title) ? yield(:title) : "Autorickshaw Productions" %></title>
+
+    <!-- Bootstrap core CSS -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     
     
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <div class= "header">
-      <%= render 'layouts/navigation' %>
-<section>
-  <p>&nbsp;</p>
-    <p>&nbsp;</p>
+    
+</head>
 
-  	<div class="column">
-	<%= image_tag "autologo.png" %>
-	</div>
-	<div class="column">
-	<h2>The home of good films</h2>
-	<p>...aesthetics beyond form.</p>
-    <p>We don't just make films. We share our dreams</p>
-	</div>
-</section>
-
-    </div>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
-    <%= render 'layouts/footer' %>
+<body>
     
 
-  </body>
+    <!-- Side Menu -->
+    <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand"><a href="/films/feature">Autorickshaw</a>
+            </li>
+            
+            <li><a href="/films/feature#about">About</a>
+            </li>
+            <li><a href="/films/feature#services">Services</a>
+            </li>
+            <li><a href="/films/feature#portfolio">Portfolio</a>
+            </li>
+            <li><a href="/films">Filmography</a>
+            </li>
+            <li><a href="/contact/new">Contact</a>
+            </li>
+            <li><%= link_to 'Adding Film', "/films/addfilm" if admin?||guest?%>
+            </li>
+        </ul>
+    </div>
+    <!-- /Side Menu -->
+
+    <!-- Full Page Image Header Area -->
+    
+    <!-- /Call to Action -->
+<%= render 'layouts/messages' %>
+    
+    <%= yield %>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <ul class="list-inline">
+                        <li><a href="mailto:manisharana31@gmail.com?Subject=Autorickshaw%20Productions%20Website"><i class="fa fa-cogs fa-3x"></i></a>
+                    </li>
+                        
+                        <li><a href="http://www.facebook.com/autorickshawproductions"><i class="fa fa-facebook-square fa-3x"></i></a>
+                        </li>
+                        <li><a href="https://twitter.com/autorickshawman"><i class="fa fa-twitter-square fa-3x"></i></a>
+                        </li>
+                        <li><a href="http://www.vimeo.com/autorickshawproductions"><i class="fa fa-vimeo-square fa-3x"></i></a>
+                        </li>
+                        
+                        
+                    </ul>
+                    <div class="top-scroll">
+                        <a href="#top"><i class="fa fa-circle-arrow-up scroll fa-4x"></i></a>
+                    </div>
+                    <hr>
+                    
+                    <p>&copy; Copyright 2014. All rights reserved.</p></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+
+    <!-- JavaScript 
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>-->
+
+    <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+    <script>
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+
+</body>
+
 </html>

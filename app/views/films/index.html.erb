@@ -16,7 +16,7 @@
                 </div>
             </div>
             <% if @documentaries.count != 0  %>
-            <div class="col-md-4 col-md-offset-4 text-center sub"> <h1 >Documentaries</h1></div>
+            <div id="documentaries" class="col-md-4 col-md-offset-4 text-center sub"> <h1 >Documentaries</h1></div>
             
             <% rowcount=0%>
               <% while rowcount <= (@documentaries.count-1)/2 do %>
@@ -53,7 +53,7 @@
           <% end %>
 
             <% if @shortfilm.count != 0  %>
-      <div class="col-md-4 col-md-offset-4 text-center sub"> <h1>Short Fiction</h1></div>
+      <div id="shortfiction" class="col-md-4 col-md-offset-4 text-center sub"> <h1>Short Fiction</h1></div>
             
             <% rowcount=0%>
               <% while rowcount <= (@shortfilm.count-1)/2 do %>
@@ -90,7 +90,7 @@
           <% end %>
 
            <% if @musicvideos.count != 0  %>
-      <div class="col-md-4 col-md-offset-4 text-center sub"> <h1>Music Videos></h1></div>
+      <div id="musicvideos" class="col-md-4 col-md-offset-4 text-center sub"> <h1>Music Videos</h1></div>
             
             <% rowcount=0%>
               <% while rowcount <= (@musicvideos.count-1)/2 do %>
@@ -126,7 +126,7 @@
           </div>
           <% end %>
 <% if ((@adfilms.count != 0) or (@behindthescenes.count != 0)  or (@weddings.count != 0))%>
-         <div class="col-md-4 col-md-offset-4 text-center sub"> <h1>Corporate Videos</h1></div>   
+         <div id="corporate" class="col-md-4 col-md-offset-4 text-center sub"> <h1>Corporate Videos</h1></div>   
 <% if @adfilms.count != 0  %>
       <div class="col-md-4 col-md-offset-4 text-center sub2"> <h1><em>Ad Films</em></h1></div>
             
@@ -164,42 +164,7 @@
           </div>
           <% end %>
 
-          <% if @musicvideos.count != 0  %>
-      <div class="col-md-4 col-md-offset-4 text-center sub2"> <h1>Music Videos</h1></div>
-            
-            <% rowcount=0%>
-              <% while rowcount <= (@musicvideos.count-1)/2 do %>
-              <div class="row">
-                <div class="col-md-4 col-md-offset-2 text-center">
-                    <div class="portfolio-item">
-                        <a href= /films/<%= (@filmlist.find_by url: (@musicvideos[2*rowcount])).id%>>
-                            <div class="blur"><img class="img-portfolio img-responsive" src=<%= (@vimeofilms.find {|f| f["id"] == (@musicvideos[2*rowcount]).to_i})["thumbnail_large"] %>></div>
-                        </a>
-                        <h4><%= (@vimeofilms.find {|f| f["id"] == (@musicvideos[2*rowcount]).to_i})["title"] %></h4>
-                    </div>
-                </div>
-                
-                  
-                <% if (rowcount < ((@musicvideos.count+1)/2)-1) or (@musicvideos.count % 2 ==0)%>
-                <div class="col-md-4 text-center">
-                    <div class="portfolio-item">
-                      
-                        <a href= /films/<%= (@filmlist.find_by url: (@musicvideos[(2*rowcount)+1])).id%>>
-                          
-                         
-                            <img class="img-portfolio img-responsive" src=<%= (@vimeofilms.find {|f| f["id"] == (@musicvideos[(2*rowcount)+1]).to_i})["thumbnail_large"] %>>
-                        </a>
-                        
-                        <h4><%=  (@vimeofilms.find {|f| f["id"] == (@musicvideos[(2*rowcount)+1]).to_i})["title"] %></h4>
-                        
-                    </div>
-                </div>
-                <%end%>
-            </div>
-            <% rowcount=rowcount+1%>
-            <%end%>
-          </div>
-          <% end %>
+          
 
           <% if @behindthescenes.count != 0  %>
       <div class="col-md-4 col-md-offset-4 text-center sub2"> <h1>Behind The Scenes</h1></div>
