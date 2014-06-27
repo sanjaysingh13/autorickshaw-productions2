@@ -1,6 +1,7 @@
-  <%= simple_nested_form_for @film, :html => {:multipart => true} do |f| %>
-    <% if @film.errors.any? %>
-        <div id="error_explanation">
+  <div class="call-to-action">
+<br /> <%= simple_nested_form_for @film, :html => {:multipart => true} do |f| %>
+<% if @film.errors.any? %>
+        <div>
         <h2><%= pluralize(@film.errors.count, "error") %> prohibited this film from being saved:</h2>
 
         <ul>
@@ -9,31 +10,24 @@
             <% end %>
         </ul>
         </div>
-    <% end %>
-          <div class="field">
-            <%= f.label :name %><br>
-            <%= f.text_field :name %>
+  <% end %>       
+<div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <div >
+            <%= f.label "D/S/M/A/B/W" %><br>
+            <%= f.input :name %>
           </div>
-          <div class="field">
-            <%= f.label "Link: Paste embeddable link" %><br>
-            <%= f.text_area :link, size: "24x6"%>
+          
+          <div >
+            <%= f.label "Just the Vimeo Film-ID" %><br>
+            <%= f.input :url %>
           </div>
-          <div class="field">
-            <%= f.label :url %><br>
-            <%= f.text_field :url %>
-          </div>
-          <div class="field">
-            <%= f.label "Writeup: With HTML formatting" %><br>
-            <%= f.text_area :writeup, size: "24x6" %>
-          </div>
-          <div class="field">
-            <%= f.label "Credits: With HTML formatting" %><br>
-            <%= f.text_area :credits, size: "24x6" %>
-          </div>
-          <div class="field">
+          <div >
             <%= f.label "Featured film?" %><br>
             <%= f.check_box :feature %>
           </div>
+          
           
           <div><h1> Add still images</h1>
             <p>The last still added, becomes the poster</p> 
@@ -49,7 +43,27 @@
             <%#= file_field_tag "images[]", type: :file, multiple: true %>
             <%= f.link_to_add "Add a still", :stills %>
           </div>
-          <div class="actions">
-            <%= f.submit "submit", :class => "btn btn-default"%>
+        <div class="actions">
+<%= f.submit  'Submit', :class => "btn btn-lg btn-primary" %>        
+        </div> 
+        <div >
+            <%= f.label "Not needed" %><br>
+            <%= f.input :writeup %>
           </div>
-  <% end %>
+          <div >
+            <%= f.label "Not needed" %><br>
+            <%= f.input :credits %>
+          </div>
+          <div >
+            <%= f.label "Not needed" %><br>
+            <%= f.input :link%>
+          </div>
+        </div> 
+      
+               
+      </div>
+
+<% end %> 
+</div>
+</div>
+  

@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   def admin?
     Rails.logger.debug "Session password is #{session[:password]}"
     Rails.logger.debug "Stored password is #{ENV["ARP_ADMIN"]}"
+    Rails.logger.debug "Vimeo consumer key is   #{ENV["VIM1"]}"
   session[:password] == ENV["ARP_ADMIN"]
   end
   def guest?
