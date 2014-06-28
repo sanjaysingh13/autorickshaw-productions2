@@ -1,3 +1,4 @@
+<div class="col-md-4 col-md-offset-4 text-center">
 <h1>Listing stills</h1>
 
 <table>
@@ -13,13 +14,14 @@
     <% @stills.each do |still| %>
       <tr>
         <td><%= still.film_id %></td>
-        <td><%= still.image %></td>
+        <td><img src=<%= still.image %> height=50 width=100></td>
         <% if admin? %>
         <td><%= link_to 'Show', still %></td>
         <td><%= link_to 'Edit', edit_still_path(still) %></td>
         <td><%= link_to 'Destroy', still, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
+
     <% end %>
   </tbody>
 </table>
@@ -27,3 +29,4 @@
 <br>
 
 <%= link_to 'New Still', new_still_path %>
+</div>
