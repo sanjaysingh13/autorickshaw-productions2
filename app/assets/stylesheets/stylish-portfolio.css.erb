@@ -6,24 +6,15 @@ body {
   width: 100%;
 }
 
-.vert-text {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
 
-.vert-text h1 {
-  padding: 0;
-  margin: 0;
-  font-size: 4em;
-  font-weight: 600;
-}
-#show! {.vert-text p {
+
+
+.vert-text p {
   padding: 20px;
   margin: 5px;
   font-size: 1.2em;
   font-weight: 300;
-}}
+}
 
 
 /* Side Menu */
@@ -119,11 +110,7 @@ body {
   width: 100%;
   color: #ffffff;
   position: relative;
-  background: url(<%= asset_data_uri 'photo2.jpg'%>) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  
 }
 
 /* Intro */
@@ -158,29 +145,16 @@ i.service-icon {
 
 /* Callout */
 
-.callout {
-  color: #ffffff;
-  display: table;
-  height: 500px;
-  width: 100%;
-   
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-.callout {
-background: url(<%= asset_data_uri '8.jpg'%>) no-repeat center center fixed ;
-}
-.callout p {padding-left: 30px; padding-top: 15px}
+
+.callout p { padding-left: 30px; padding-right: 30px; padding-top: 15px}
 .callout #myCarousel {padding-bottom: 30px}
 
 /* Portfolio */
 
 .portfolio {
   padding: 50px 0;}
-    .portfolio .sub h1 {font-size: 1.9em;}
-    .portfolio .sub2 h1 {font-size: 1.7em;}
+     .sub h1 {font-size: 1.9em;}
+     .sub2 h1 {font-size: 1.7em;}
      .sub3 h1 {font-size: 1.8em; text-align:left;}
 
 
@@ -214,7 +188,7 @@ background: url(<%= asset_data_uri '8.jpg'%>) no-repeat center center fixed ;
 /* Footer */
 
 footer {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 .top-scroll {
@@ -233,23 +207,129 @@ i.scroll {
 i.scroll:hover {
   color: #0a5175;
 }
+.vert-texting {
+  
+  vertical-align: middle;
+  text-align: center;
+}
+.vert-texting h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 4em;
+  font-weight: 600;
+}
+.vert-texting p {
+  padding: 20px;
+  margin: 5px;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+.vert-text {
+    display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
 /* Responsive */
-
-
-@media only screen and (max-width: 768px) {
-	
-  .header {
-	background: url(<%= asset_data_uri 'photo2.jpg'%>) no-repeat center center scroll; 
+@media  (max-width: 420px){
+  
+   .header {
+  background: url(<%= asset_path 'photo2.jpg'%>) no-repeat left center scroll; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   }
 
+  
   .callout {
-	background: url(<%= asset_data_uri '8.jpg'%>) no-repeat center center scroll; 
+  color: #ffffff;
+  
+  
+background: #0a5175;  
+}
+
+  .map {
+  height: 75%;
   }
+  
+
+.vert-text h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 3em;
+  font-weight: 400;
+}
+ 
+
+}
+
+@media  (max-width: 767px) and (min-width: 420px){
+	
+   .header {
+	background: url(<%= asset_path 'photo2.jpg'%>) no-repeat right center  scroll; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+
+  /*.callout {
+	background: url(<%= asset_path '8.jpg'%>) no-repeat center center scroll; 
+  }*/
 
   .map {
 	height: 75%;
   }
+.vert-text h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 4.5em;
+  font-weight: 600;
+}
+.callout {
+  color: #ffffff;
+  display: table;
+  height: 100%;
+  width: 100%;
+  background: url(<%= asset_path '8.jpg'%>) no-repeat center center scroll ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 
 }
 
+@media  (min-width: 768px){
+.header {
+  
+  background: url(<%= asset_path 'photo2.jpg'%>) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.map {
+  height: 75%;
+  }
+.vert-text h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 4em;
+  font-weight: 600;
+}
+.callout {
+  color: #ffffff;
+  display: table;
+  height: 100%;
+  width: 100%;
+  background: url(<%= asset_path '8.jpg'%>) no-repeat center center fixed ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+}

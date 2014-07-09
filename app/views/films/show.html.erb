@@ -4,24 +4,24 @@
   
           <div class="callout">
 
-      <div class="vert-text">
+      <div class="vert-texting">
       <h1><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["title"] %></h1>
     
     <p>&nbsp;</p>
  
-   <div class="col-md-8 col-md-offset-2 text-center">
+   <div class="col-md-8  col-md-offset-2 text-center">
                 <div class="responsive-video">
             <iframe allowfullscreen="" src="http://player.vimeo.com/video/<%=@film.url%>" frameborder="0" width="1000" height="562"></iframe>
             </div>
-            </section>
+            
 </div>
 <div class="row">
     
-	<section class="col-lg-4 col-sm-12">
+	<section class="col-lg-6 col-sm-12 ">
 
 			<p ><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["description"] %></p>
     </section>
-    <section class="col-lg-8 col-sm-12">
+    <section class="col-lg-6 col-sm-12">
       <p>&nbsp;</p>
   
 
@@ -57,8 +57,7 @@
         
       </div>
     </section>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
+      
       
      
   </div></div>
