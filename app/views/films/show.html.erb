@@ -1,5 +1,6 @@
 <% content_for :title do %><%= (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["title"] %><% end %>
 <% content_for :description do %>Website of Autorickshaw Productions<% end %>
+<% cache @film do%>
 <div id="<%= params[:action]%>">
   
           <div class="callout">
@@ -64,6 +65,7 @@
     </div>
 
     </div> 
+    <% end %>
 <!-- Vimeo Advanced API-->
 
 <% cstructured = @film.vimeocomments %>

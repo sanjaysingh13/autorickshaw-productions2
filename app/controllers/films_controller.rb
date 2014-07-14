@@ -11,7 +11,6 @@ before_action :behindthescenes
 before_action :adfilms
 before_action :weddings
 
-
   # GET /films
   # GET /films.json
   

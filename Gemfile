@@ -31,6 +31,8 @@ gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
 gem 'quiet_assets'
 gem 'rails_layout'
 end
+gem 'dalli'
+gem 'memcachier'
 gem 'gibbon'
 gem 'google_drive'
 gem 'simple_form','3.1.0.rc1'

@@ -53,6 +53,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    dalli (2.7.2)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     excon (0.37.0)
@@ -104,6 +105,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     mime-types (1.25.1)
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
@@ -210,12 +212,14 @@ DEPENDENCIES
   bootstrap-sass
   carrierwave
   coffee-rails (~> 4.0.0)
+  dalli
   fog
   gibbon
   google_drive
   high_voltage
   jbuilder (~> 2.0)
   jquery-rails
+  memcachier
   mini_magick
   nested_form
   pg

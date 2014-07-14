@@ -79,6 +79,9 @@
     </div>
     <!-- /Services -->
 
+
+<%cache ['Featured', Film.latest] do %>
+
     <!-- Callout -->
     <div class="callout">
         <div class="vert-text">
@@ -157,62 +160,5 @@
             </div>
         </div>
     </div>
-
-  <!--<section class="col-md-4">
-	<%content_for :write_up do%>
-			<p><%== @featurefilm.writeup %></p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <%== @featurefilm.credits %>
-     
-      <% end%>
-  </section">
-  "  <section class="col-md-8">
-    <%content_for :film_video do%><div class="responsive-video">
-            <%== @featurefilm.link %>
-            </div><%end%>
-            <p>&nbsp;</p>
-    <p>&nbsp;</p>
-
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-   
-        <div class="carousel-inner">
-  	         <div class="item active">
-                <%= image_tag @featurefilm.stills.first.image.url(:medium_image) %>
-              <div class="carousel-caption text-center">
-              <h4></h4>
-              </div>
-             </div>
-            <% @featurefilm.stills.each do |still| %>
+<% end %>
   
-  <%#= image_still(@still.image)%>
-
-              <div class="item">
-                <%= image_tag still.image.url(:medium_image) %>
-
-                <div class="carousel-caption text-center">
-                  <h4></h4>
-                </div>
-              </div>
-            <% end %>
-        </div>
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
-        class="glyphicon glyphicon-chevron-left"></span></a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next"><span
-        class="glyphicon glyphicon-chevron-right"></a>
-      </div>
- 
-
-    
-  </section>
-
-
- 
-            
-            <!--<div class="videowrapper well">
-                    <iframe src="http://player.vimeo.com/video/45417023" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> 
-                  </div>-->
-
-             
-          
-
