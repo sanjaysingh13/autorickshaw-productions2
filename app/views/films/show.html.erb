@@ -1,4 +1,4 @@
-<% content_for :title do %><%= (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["title"] %><% end %>
+<% content_for :title do %><%= (Film.vimeofilms.find {|f| f["id"] == @film.url.to_i})["title"] %><% end %>
 <% content_for :description do %>Website of Autorickshaw Productions<% end %>
 <% cache @film do%>
 <div id="<%= params[:action]%>">
@@ -6,7 +6,7 @@
           <div class="callout">
 
       <div class="vert-texting">
-      <h1><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["title"] %></h1>
+      <h1><%== (Film.vimeofilms.find {|f| f["id"] == @film.url.to_i})["title"] %></h1>
     
     <p>&nbsp;</p>
  
@@ -20,7 +20,7 @@
     
 	<section class="col-lg-6 col-sm-12 ">
 
-			<p ><%== (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["description"] %></p>
+			<p ><%== (Film.vimeofilms.find {|f| f["id"] == @film.url.to_i})["description"] %></p>
     </section>
     <section class="col-lg-6 col-sm-12">
       <p>&nbsp;</p>
@@ -37,7 +37,7 @@
 </ol>
         <div class="carousel-inner">
              <div class="item active">
-                <img  src=<%= (@vimeofilms.find {|f| f["id"] == @film.url.to_i})["thumbnail_large"] %>>
+                <img  src=<%= (Film.vimeofilms.find {|f| f["id"] == @film.url.to_i})["thumbnail_large"] %>>
               <div class="carousel-caption text-center">
               <h4></h4>
               </div>

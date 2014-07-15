@@ -71,4 +71,107 @@ def commentlist
  q = comments["comments"]["comment"] 
 end
 end
+def self.vimeofilms
+     Rails.cache.fetch(["VF", Film.order(:updated_at).last]) do
+
+    (Vimeo::Simple::User.videos("autorickshawproductions")).to_a
+    end
+  end
+  def self.filmlist
+     Rails.cache.fetch(["FL", Film.order(:updated_at).last]) do
+
+    Film.all
+         end
+   end
+   
+   
+   def self.documentaries
+     Rails.cache.fetch(["DOC", Film.order(:updated_at).last]) do
+
+   @documentaries = [] 
+    Film.all.each do |film|
+        if film.name == "D" 
+          
+        @documentaries << film.url
+        
+        end
+        
+        
+    end  
+     @documentaries 
+    end 
+    end
+       
+
+    def self.shortfilm   
+     Rails.cache.fetch(["SF", Film.order(:updated_at).last]) do
+            @shortfilm = [] 
+    Film.all.each do |film|
+        if film.name == "S" 
+        @shortfilm << film.url
+        end
+        
+    end
+    @shortfilm    
+    end
+  end
+     
+
+    def self.musicvideos
+     Rails.cache.fetch(["MV", Film.order(:updated_at).last]) do
+          @musicvideos = [] 
+    Film.all.each do |film|
+        if film.name == "M" 
+        @musicvideos << film.url
+        end
+        
+    end 
+    @musicvideos   
+    end
+  end
+     
+
+    def self.behindthescenes
+     Rails.cache.fetch(["BTS", Film.order(:updated_at).last]) do
+@behindthescenes = [] 
+    Film.all.each do |film|
+        if film.name == "B" 
+        @behindthescenes << film.url
+        end
+        
+    end 
+    @behindthescenes   
+    end
+  end
+     
+
+    def self.adfilms
+     Rails.cache.fetch(["AF", Film.order(:updated_at).last]) do
+        @adfilms = [] 
+    Film.all.each do |film|
+        if film.name == "A" 
+        @adfilms << film.url
+        end
+    end 
+            @adfilms
+   
+   end
+  end
+     
+
+    def self.weddings
+     Rails.cache.fetch(["W", Film.order(:updated_at).last]) do
+          @weddings = [] 
+    Film.all.each do |film|
+        if film.name == "W" 
+        @weddings << film.url
+        end
+    end 
+            @weddings
+   
+   end
+end
+
+
+
 end

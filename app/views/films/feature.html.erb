@@ -87,7 +87,7 @@
         <div class="vert-text">
             
             <div class="col-md-4 col-md-offset-6 text-center"><h1>Featured Film</h1>
-            <p><%== (@vimeofilms.find {|f| f["id"] == @featurefilm.url.to_i})["description"] %></p>
+            <p><%== (Film.vimeofilms.find {|f| f["id"] == @featurefilm.url.to_i})["description"] %></p>
             </div>
             <div class="col-md-8 col-md-offset-2 text-center">
                 <div class="responsive-video">
@@ -111,36 +111,36 @@
                 <div class="col-md-4 col-md-offset-2 text-center">
                     <div class="portfolio-item">
                         
-                        <a href=/films/<%= (@filmlist.find {|f| f["url"] == @vimeofilms.first["url"][18,8]}).id %>>
-                            <img class="img-portfolio img-responsive" src=<%= @vimeofilms.first["thumbnail_large"]%>>
+                        <a href=/films/<%= (Film.filmlist.find {|f| f["url"] == Film.vimeofilms.first["url"][18,8]}).id %>>
+                            <img class="img-portfolio img-responsive" src=<%= Film.vimeofilms.first["thumbnail_large"]%>>
                         </a>
-                        <h4><%= @vimeofilms.first["title"]%></h4>
+                        <h4><%= Film.vimeofilms.first["title"]%></h4>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
                     <div class="portfolio-item">
-                        <a href=/films/<%= (@filmlist.find {|f| f["url"] == @vimeofilms.second["url"][18,8]}).id%>>
-                            <img class="img-portfolio img-responsive" src=<%= @vimeofilms.second["thumbnail_large"]%>>
+                        <a href=/films/<%= (Film.filmlist.find {|f| f["url"] == Film.vimeofilms.second["url"][18,8]}).id%>>
+                            <img class="img-portfolio img-responsive" src=<%= Film.vimeofilms.second["thumbnail_large"]%>>
                         </a>
-                        <h4><%= @vimeofilms.second["title"]%></h4>
+                        <h4><%= Film.vimeofilms.second["title"]%></h4>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4 col-md-offset-2 text-center">
                     <div class="portfolio-item">
-                        <a href=/films/<%= (@filmlist.find {|f| f["url"] == @vimeofilms.third["url"][18,8]}).id %>>
-                            <img class="img-portfolio img-responsive" src=<%= @vimeofilms.third["thumbnail_large"]%>>
+                        <a href=/films/<%= (Film.filmlist.find {|f| f["url"] == Film.vimeofilms.third["url"][18,8]}).id %>>
+                            <img class="img-portfolio img-responsive" src=<%= Film.vimeofilms.third["thumbnail_large"]%>>
                         </a>
-                        <h4><%= @vimeofilms.third["title"]%></h4>
+                        <h4><%= Film.vimeofilms.third["title"]%></h4>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
                     <div class="portfolio-item">
-                        <a href=/films/<%= (@filmlist.find {|f| f["url"] == @vimeofilms.fourth["url"][18,8]}).id%>>
-                            <img class="img-portfolio img-responsive" src=<%=@vimeofilms.fourth["thumbnail_large"]%>>
+                        <a href=/films/<%= (Film.filmlist.find {|f| f["url"] == Film.vimeofilms.fourth["url"][18,8]}).id%>>
+                            <img class="img-portfolio img-responsive" src=<%=Film.vimeofilms.fourth["thumbnail_large"]%>>
                         </a>
-                        <h4><%= @vimeofilms.fourth["title"]%></h4>
+                        <h4><%= Film.vimeofilms.fourth["title"]%></h4>
                     </div>
                 </div>
             </div>
