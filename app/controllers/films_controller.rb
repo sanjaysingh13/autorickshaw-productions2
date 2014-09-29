@@ -16,7 +16,7 @@ class FilmsController < ApplicationController
   end
   def feature
     
-    @featurefilm = Film.where(feature:true).first
+    @featurefilm = Film.where(feature:true).order("updated_at DESC").first
     
 
 
@@ -26,7 +26,7 @@ class FilmsController < ApplicationController
   # GET /films/1.json
   def show
     @film = Film.find(params[:id])
-
+    
 
   end
 

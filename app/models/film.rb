@@ -87,73 +87,51 @@ def self.vimeofilms
    
    def self.documentaries
      Rails.cache.fetch(["DOC", Film.order(:updated_at).last]) do
-
-   @documentaries = [] 
-    Film.all.each do |film|
-        if film.name == "D" 
+Film.where(name: "D").pluck(:url)
+  # could use manual construction.   e.g.     
+  #@documentaries = [] 
+   # Film.all.each do |film|
+     #   if film.name == "D" 
           
-        @documentaries << film.url
+       # @documentaries << film.url
         
-        end
+       # end
         
         
-    end  
-     @documentaries 
+    #end  
+     #@documentaries 
     end 
     end
        
 
     def self.shortfilm   
      Rails.cache.fetch(["SF", Film.order(:updated_at).last]) do
-            @shortfilm = [] 
-    Film.all.each do |film|
-        if film.name == "S" 
-        @shortfilm << film.url
-        end
-        
-    end
-    @shortfilm    
+            Film.where(name: "S").pluck(:url)
+    
     end
   end
      
 
     def self.musicvideos
      Rails.cache.fetch(["MV", Film.order(:updated_at).last]) do
-          @musicvideos = [] 
-    Film.all.each do |film|
-        if film.name == "M" 
-        @musicvideos << film.url
-        end
-        
-    end 
-    @musicvideos   
+          Film.where(name: "M").pluck(:url)
+  
     end
   end
      
 
     def self.behindthescenes
      Rails.cache.fetch(["BTS", Film.order(:updated_at).last]) do
-@behindthescenes = [] 
-    Film.all.each do |film|
-        if film.name == "B" 
-        @behindthescenes << film.url
-        end
-        
-    end 
-    @behindthescenes   
+Film.where(name: "B").pluck(:url)
+  
     end
   end
      
 
     def self.adfilms
      Rails.cache.fetch(["AF", Film.order(:updated_at).last]) do
-        @adfilms = [] 
-    Film.all.each do |film|
-        if film.name == "A" 
-        @adfilms << film.url
-        end
-    end 
-            @adfilms
+        Film.where(name: "A").pluck(:url)
+
    
    end
   end
@@ -161,13 +139,8 @@ def self.vimeofilms
 
     def self.weddings
      Rails.cache.fetch(["W", Film.order(:updated_at).last]) do
-          @weddings = [] 
-    Film.all.each do |film|
-        if film.name == "W" 
-        @weddings << film.url
-        end
-    end 
-            @weddings
+          Film.where(name: "W").pluck(:url)
+
    
    end
 end

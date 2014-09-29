@@ -17,6 +17,3 @@
 //= require bootstrap
 //= require_tree .
 
-$(function() {
-  $(document).foundation();
-});
