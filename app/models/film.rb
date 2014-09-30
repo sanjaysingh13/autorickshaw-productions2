@@ -13,7 +13,7 @@ end
 # generating Vimeo comments
 
 def vimeocomments
-  #Rails.cache.fetch("#{cache_key}/vimeocomments", :expires_in => 1.day) do
+  Rails.cache.fetch("#{cache_key}/vimeocomments", :expires_in => 1.day) do
  
  video = Vimeo::Advanced::Video.new(Rails.application.secrets.vim1, Rails.application.secrets.vim2, :token => Rails.application.secrets.vim3, :secret => Rails.application.secrets.vim4)
  comments = video.get_comments_list(self.url.to_i) 
@@ -60,33 +60,33 @@ def vimeocomments
 
  return m 
  
-# end
+ end
 end
 
 def commentlist
- # Rails.cache.fetch("#{cache_key}/commentlist", :expires_in => 1.day) do
+  Rails.cache.fetch("#{cache_key}/commentlist", :expires_in => 1.day) do
  
  video = Vimeo::Advanced::Video.new("82caad5d814d421a85c2b8844aab8c756348a74a", "6f7c421aa79efc12abc1a459058913f06d001a62", :token => "c60e31a5d5d878e647984175c871994b", :secret => "0eec1145bd44d62d1308ca38945a9b4eb5bc2934")
  comments = video.get_comments_list(self.url.to_i) 
  q = comments["comments"]["comment"] 
-#end
+end
 end
 def self.vimeofilms
-  #   Rails.cache.fetch(["VF", Film.order(:updated_at).last]) do
+     Rails.cache.fetch(["VF", Film.order(:updated_at).last]) do
 
     (Vimeo::Simple::User.videos("autorickshawproductions")).to_a
-   # end
+    end
   end
   def self.filmlist
-    # Rails.cache.fetch(["FL", Film.order(:updated_at).last]) do
+     Rails.cache.fetch(["FL", Film.order(:updated_at).last]) do
 
     Film.all
-  #       end
+         end
    end
    
    
    def self.documentaries
- #    Rails.cache.fetch(["DOC", Film.order(:updated_at).last]) do
+     Rails.cache.fetch(["DOC", Film.order(:updated_at).last]) do
 Film.where(name: "D").pluck(:url)
   # could use manual construction.   e.g.     
   #@documentaries = [] 
@@ -100,49 +100,49 @@ Film.where(name: "D").pluck(:url)
         
     #end  
      #@documentaries 
-  #  end 
+    end 
     end
        
 
     def self.shortfilm   
-   #  Rails.cache.fetch(["SF", Film.order(:updated_at).last]) do
+     Rails.cache.fetch(["SF", Film.order(:updated_at).last]) do
             Film.where(name: "S").pluck(:url)
     
-  #  end
+    end
   end
      
 
     def self.musicvideos
-  #   Rails.cache.fetch(["MV", Film.order(:updated_at).last]) do
+     Rails.cache.fetch(["MV", Film.order(:updated_at).last]) do
           Film.where(name: "M").pluck(:url)
   
-   # end
+    end
   end
      
 
     def self.behindthescenes
-   #  Rails.cache.fetch(["BTS", Film.order(:updated_at).last]) do
+     Rails.cache.fetch(["BTS", Film.order(:updated_at).last]) do
 Film.where(name: "B").pluck(:url)
   
-  #  end
+    end
   end
      
 
     def self.adfilms
-  #   Rails.cache.fetch(["AF", Film.order(:updated_at).last]) do
+     Rails.cache.fetch(["AF", Film.order(:updated_at).last]) do
         Film.where(name: "A").pluck(:url)
 
    
-  # end
+   end
   end
      
 
     def self.weddings
-  #   Rails.cache.fetch(["W", Film.order(:updated_at).last]) do
+     Rails.cache.fetch(["W", Film.order(:updated_at).last]) do
           Film.where(name: "W").pluck(:url)
 
    
-  # end
+   end
 end
 
 

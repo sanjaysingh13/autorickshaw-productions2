@@ -233,7 +233,8 @@ i.scroll:hover {
 @media  (max-width: 420px){
   
    .header {
-  background: url(<%= asset_path 'photo2.jpg'%>) no-repeat left center scroll; 
+  background: url(<%= asset_path 'photo2.jpg'%>) no-repeat; 
+  background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
